@@ -1,34 +1,35 @@
-def reverse(num):
-    return num[-1::-1]
 
-def mul(b1, b2):
-    if b1 == "0" or b2 == "0":
-        return "0"
-    else:
-        return "1"
+
+def binary_multiplication(A, B):
+    # Convert binary strings to integers
+    A = int(A, 2)
+    B = int(B, 2)
+
+    # partial product 
+    P = 0
     
-def multiply(b1 = "100", b2 = "101"):
-    l1, l2 = len(b1), len(b2)
-    largest = max(l1, l2)
+    multiplicand = A
+
     
-    #number padding
-    b1  = b1.zfill(largest)
-    b2  = b2.zfill(largest)
-    
-    # reverse both numbers
-    b1  = reverse(b1)
-    b2  = reverse(b2)
-    
-    b2 = list(b2)
-    
-    for i in range(l):
-        if b2[0] == 1:
-            partial_sum.append(b1)
-            
+    while B > 0:
+        # If the least significant bit of B is 1, add the multiplicand to P
+        if B & 1:
+            P += multiplicand
         
-    
-    
-    
-    
-    partial_sum = []
-    for i in b2
+        
+        multiplicand <<= 1
+        
+        
+        B >>= 1
+
+    # Convert the result to binary string
+    result = bin(P)[2:]
+    return result.zfill(8)  
+
+
+A = "00001001"
+B = "00001101"
+
+
+product = binary_multiplication(A, B)
+print("Product:", product) 
